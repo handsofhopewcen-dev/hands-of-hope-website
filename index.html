@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hands of Hope — Women & Children Empowerment Network</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --plum: #5A2D66;
+  --rose: #B85C7A;
+  --gold: #D7A14A;
+  --cream: #F8F4EF;
+  --warm: #FDFBF8;
+  --sage: #8FA89E;
+  --mist: #EEE7F2;
+  --ink: #23171F;
+  --soft-text: #665662;
+  --line: rgba(90,45,102,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+section {
+  padding: 7rem 0;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(253,251,248,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 0;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--plum);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.logo span {
+  color: var(--rose);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--rose);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 100px;
+  padding: 0.95rem 1.8rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--plum);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--plum);
+  color: var(--plum);
+}
+
+.btn-outline:hover {
+  background: var(--plum);
+  color: white;
+}
+
+/* STARTUP VIDEO OVERLAY */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,10,18,0.92);
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.video-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-modal {
+  width: min(1000px, 100%);
+  position: relative;
+}
+
+.video-modal video {
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  background: black;
+}
+
+.skip-video {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.skip-video:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* HERO */
+.hero {
+  padding-top: 10rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--cream);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(184,92,122,0.08);
+  color: var(--rose);
+  padding: 0.6rem 1rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 span {
+  color: var(--rose);
+}
+
+.hero p {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--soft-text);
+  max-width: 620px;
+  margin-bottom: 2.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  border-radius: 2rem;
+  height: 650px;
+  box-shadow: 0 20px 50px rgba(35,23,31,0.08);
+}
+
+.hero-card {
+  position: absolute;
+  background: white;
+  padding: 1.3rem;
+  border-radius: 1.3rem;
+  box-shadow: 0 10px 30px rgba(35,23,31,0.08);
+}
+
+.hero-card.one {
+  bottom: 30px;
+  left: -30px;
+}
+
+.hero-card.two {
+  top: 30px;
+  right: -30px;
+}
+
+.hero-card h3 {
+  color: var(--plum);
+  font-size: 1.8rem;
+}
+
+.hero-card p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+/* STORY */
+.story {
+  background: white;
+}
+
+.story-box {
+  background: var(--mist);
+  border-radius: 2rem;
+  padding: 4rem;
+  text-align: center;
+}
+
+.story-box p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.6;
+  max-width: 900px;
+  margin: auto;
+  color: var(--plum);
+}
+
+/* SECTION HEADINGS */
+.section-tag {
+  color: var(--rose);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  max-width: 650px;
+  line-height: 1.9;
+  color: var(--soft-text);
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.about-images img {
+  border-radius: 1.6rem;
+  height: 320px;
+}
+
+.about-images img:first-child {
+  margin-top: 3rem;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.mission-card {
+  background: var(--cream);
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+
+.mission-card h3 {
+  color: var(--plum);
+  margin-bottom: 0.8rem;
+}
+
+.mission-card p {
+  line-height: 1.8;
+  color: var(--soft-text);
+}
+
+/* HOW WE HELP */
+.help-journey {
+  background: var(--cream);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.journey-card {
+  background: white;
+  border-radius: 1.7rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(35,23,31,0.05);
+}
+
+.journey-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--plum);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.journey-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.journey-card p {
+  line-height: 1.8;
+  color: var(--soft-text);
+}
+
+/* PROGRAMS */
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.6rem;
+  margin-top: 4rem;
+}
+
+.program-card {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 2.3rem;
+  border-radius: 1.7rem;
+  transition: 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(35,23,31,0.06);
+}
+
+.program-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+  background: var(--mist);
+  margin-bottom: 1.5rem;
+}
+
+.program-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.program-card p {
+  line-height: 1.8;
+  color: var(--soft-text);
+}
+
+/* IMPACT */
+.impact {
+  background: var(--plum);
+  color: white;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2rem;
+}
+
+.impact-item {
+  text-align: center;
+}
+
+.impact-item h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 4rem;
+}
+
+.impact-item p {
+  color: rgba(255,255,255,0.75);
+  margin-top: 0.8rem;
+  line-height: 1.6;
+}
+
+/* TESTIMONIALS */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.testimonial-card {
+  background: var(--cream);
+  padding: 2.5rem;
+  border-radius: 1.7rem;
+}
+
+.testimonial-card p {
+  line-height: 1.9;
+  color: var(--soft-text);
+  margin-bottom: 2rem;
+}
+
+.author {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.author strong {
+  display: block;
+}
+
+.author span {
+  color: var(--soft-text);
+  font-size: 0.9rem;
+}
+
+/* DONATE */
+.donate {
+  background: var(--cream);
+  text-align: center;
+}
+
+.donate-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.donate-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.8rem;
+  border: 1px solid var(--line);
+}
+
+.donate-card h3 {
+  font-size: 3rem;
+  color: var(--plum);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.donate-card p {
+  line-height: 1.8;
+  color: var(--soft-text);
+}
+
+.monthly {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(35,23,31,0.05);
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--plum);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  border: 1px solid rgba(90,45,102,0.15);
+  border-radius: 1rem;
+  padding: 1rem;
+  font-family: inherit;
+  background: var(--warm);
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: white;
+  padding: 5rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-grid h3,
+.footer-grid h4 {
+  margin-bottom: 1rem;
+}
+
+.footer-grid p,
+.footer-grid li {
+  color: rgba(255,255,255,0.7);
+  line-height: 1.9;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-mission {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--gold);
+  margin-top: 1.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* MOBILE */
+@media(max-width: 992px) {
+  .hero-grid,
+  .about-grid,
+  .contact-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-grid,
+  .testimonial-grid,
+  .journey-grid,
+  .donate-grid,
+  .impact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-image img {
+    height: 500px;
+  }
+}
+
+@media(max-width: 768px) {
+  section {
+    padding: 5rem 0;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .program-grid,
+  .testimonial-grid,
+  .journey-grid,
+  .donate-grid,
+  .impact-grid,
+  .mission-grid,
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 8rem;
+  }
+
+  .hero-card {
+    display: none;
+  }
+
+  .story-box {
+    padding: 2.5rem;
+  }
+
+  .contact-card {
+    padding: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- STARTUP VIDEO -->
+<div class="video-overlay" id="videoOverlay">
+  <div class="video-modal">
+
+    <!-- Replace startup-video.mp4 with your actual video file -->
+    <video id="startupVideo" autoplay muted playsinline>
+      <source src="assets/videos/startup-video.mp4" type="video/mp4">
+    </video>
+
+    <button class="skip-video" id="skipVideo">Skip Intro</button>
+  </div>
+</div>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo">Hands <span>of</span> Hope</a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+      <a href="#donate" class="btn btn-primary">Donate</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="hero-tag">501(c)(3) Nonprofit Organization</div>
+
+      <h1>
+        Compassionate support for <span>mothers</span>, children, and families navigating life’s hardest seasons.
+      </h1>
+
+      <p>
+        Hands of Hope provides postpartum care support, developmental resources, emergency assistance, advocacy, and community programs that help families heal, stabilize, and thrive.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#donate" class="btn btn-primary">Support a Family</a>
+        <a href="#about" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1400&auto=format&fit=crop" alt="Women supporting each other">
+
+      <div class="hero-card one">
+        <h3>287+</h3>
+        <p>Postpartum care packages distributed in 2025</p>
+      </div>
+
+      <div class="hero-card two">
+        <h3>140+</h3>
+        <p>Families connected to developmental support resources</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container">
+    <div class="story-box">
+      <p>
+        Too many mothers suffer silently after childbirth. Too many families struggle without access to developmental care, emergency support, or compassionate community resources. Hands of Hope exists to ensure no family walks through crisis alone.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+
+    <div class="about-images">
+      <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop" alt="Mother and child">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop" alt="Children learning">
+    </div>
+
+    <div>
+      <span class="section-tag">About Hands of Hope</span>
+      <h2 class="section-title">Built on compassion. Rooted in community.</h2>
+
+      <p class="section-desc">
+        Hands of Hope Women and Children Empowerment Network was created to support postpartum mothers, underserved children, and families facing difficult seasons through compassionate care, practical resources, education, and advocacy.
+      </p>
+
+      <div class="mission-grid">
+        <div class="mission-card">
+          <h3>Our Mission</h3>
+          <p>
+            Providing compassionate support, developmental resources, practical assistance, and empowerment opportunities for women and families.
+          </p>
+        </div>
+
+        <div class="mission-card">
+          <h3>Our Vision</h3>
+          <p>
+            Building healthier families and stronger communities where every woman and child has the opportunity to thrive.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="help-journey">
+  <div class="container">
+
+    <span class="section-tag">How We Help</span>
+    <h2 class="section-title">A compassionate path to support</h2>
+
+    <div class="journey-grid">
+
+      <div class="journey-card">
+        <div class="journey-number">1</div>
+        <h3>Reach Out</h3>
+        <p>
+          Families connect with our team confidentially through referrals, outreach programs, or direct contact.
+        </p>
+      </div>
+
+      <div class="journey-card">
+        <div class="journey-number">2</div>
+        <h3>Needs Assessment</h3>
+        <p>
+          We listen carefully, identify urgent needs, and connect families to the right resources and support systems.
+        </p>
+      </div>
+
+      <div class="journey-card">
+        <div class="journey-number">3</div>
+        <h3>Care & Restoration</h3>
+        <p>
+          Through practical care, education, and ongoing support, families begin rebuilding stability and hope.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="container">
+
+    <span class="section-tag">Programs & Services</span>
+    <h2 class="section-title">Support designed around real family needs</h2>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+        <div class="program-icon"></div>
+        <h3>Postpartum Mothers Support</h3>
+        <p>
+          Emotional support, postpartum care packages, practical assistance, and community care for mothers navigating recovery and transition.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon"></div>
+        <h3>Developmental Resource Access</h3>
+        <p>
+          Helping families access developmental screenings, therapy referrals, educational tools, and special-needs support.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon"></div>
+        <h3>Crisis Assistance</h3>
+        <p>
+          Compassionate response and emergency support for women and families facing hardship, instability, or crisis situations.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon"></div>
+        <h3>Life Skills & Mentorship</h3>
+        <p>
+          Workshops and mentorship opportunities focused on parenting, budgeting, career readiness, wellness, and confidence building.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon"></div>
+        <h3>Community Outreach</h3>
+        <p>
+          Resource fairs, outreach initiatives, and partnerships that bring practical care directly into underserved communities.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon"></div>
+        <h3>Emergency Relief Support</h3>
+        <p>
+          Food assistance, hygiene essentials, clothing support, referrals, and immediate aid for families in urgent need.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <div class="container">
+
+    <div class="impact-grid">
+
+      <div class="impact-item">
+        <h2>287+</h2>
+        <p>Postpartum care packages distributed in local communities</p>
+      </div>
+
+      <div class="impact-item">
+        <h2>140+</h2>
+        <p>Families connected to developmental support resources</p>
+      </div>
+
+      <div class="impact-item">
+        <h2>90+</h2>
+        <p>Volunteers and community partners serving across Texas</p>
+      </div>
+
+      <div class="impact-item">
+        <h2>3K+</h2>
+        <p>Meals, supplies, and emergency resources distributed</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <span class="section-tag">Stories of Hope</span>
+    <h2 class="section-title">Real stories from families and volunteers</h2>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <p>
+          “Hands of Hope supported me during one of the loneliest seasons of my life after childbirth. Their compassion reminded me that I wasn’t alone.”
+        </p>
+
+        <div class="author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop" alt="Mother testimonial">
+
+          <div>
+            <strong>Community Mother</strong>
+            <span>Postpartum Support Participant</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          “Their developmental resource referrals helped us access therapy support we didn’t even know existed for our child.”
+        </p>
+
+        <div class="author">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=500&auto=format&fit=crop" alt="Parent testimonial">
+
+          <div>
+            <strong>Parent Advocate</strong>
+            <span>Family Support Program</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          “Volunteering with Hands of Hope has shown me what compassionate community care truly looks like in action.”
+        </p>
+
+        <div class="author">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=500&auto=format&fit=crop" alt="Volunteer testimonial">
+
+          <div>
+            <strong>Community Volunteer</strong>
+            <span>Outreach Partner</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="donate" id="donate">
+  <div class="container">
+
+    <span class="section-tag">Support Our Mission</span>
+    <h2 class="section-title">Every gift helps restore hope</h2>
+
+    <p class="section-desc" style="margin:auto; text-align:center;">
+      Your support helps provide postpartum essentials, developmental resources, emergency care, meals, and community support for families navigating difficult seasons.
+    </p>
+
+    <div class="donate-grid">
+
+      <div class="donate-card">
+        <h3>$35</h3>
+        <p>
+          Provides postpartum essentials and hygiene support for a new mother.
+        </p>
+      </div>
+
+      <div class="donate-card">
+        <h3>$75</h3>
+        <p>
+          Helps fund developmental resource access and support referrals for children.
+        </p>
+      </div>
+
+      <div class="donate-card">
+        <h3>$150</h3>
+        <p>
+          Supports emergency care, food assistance, and stabilization support for families.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="monthly">
+      <input type="checkbox">
+      <label>Make this a recurring monthly gift</label>
+    </div>
+
+    <div style="margin-top:2rem;">
+      <a href="#" class="btn btn-primary">Donate Securely</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+
+    <div>
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">We’re here to help</h2>
+
+      <p class="section-desc" style="margin-bottom:2rem;">
+        Whether you’re seeking support, looking to volunteer, or interested in partnering with Hands of Hope, we would love to hear from you.
+      </p>
+
+      <div style="margin-bottom:2rem; line-height:2; color:var(--soft-text);">
+        <strong style="color:var(--plum);">Location:</strong><br>
+        Texas, United States
+      </div>
+
+      <div style="margin-bottom:2rem; line-height:2; color:var(--soft-text);">
+        <strong style="color:var(--plum);">Email:</strong><br>
+        info@handsofhope.org
+      </div>
+
+      <div style="line-height:2; color:var(--soft-text);">
+        <strong style="color:var(--plum);">Office Hours:</strong><br>
+        Monday – Friday | 9AM – 5PM CT
+      </div>
+    </div>
+
+    <div class="contact-card">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+
+      <div class="form-group">
+        <label>How Can We Help?</label>
+        <select>
+          <option>Select One</option>
+          <option>Request Support</option>
+          <option>Volunteer Inquiry</option>
+          <option>Partnership Opportunity</option>
+          <option>Donation Question</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us more about how we can support or connect with you."></textarea>
+      </div>
+
+      <button class="btn btn-primary" style="border:none; width:100%; cursor:pointer;">
+        Send Message
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>Hands of Hope</h3>
+
+        <p>
+          Supporting postpartum mothers, children, and families through compassionate care, community support, education, advocacy, and practical resources.
+        </p>
+
+        <div class="footer-mission">
+          Every mother deserves support.<br>
+          Every child deserves hope.<br>
+          Every family deserves community.
+        </div>
+      </div>
+
+      <div>
+        <h4>Navigation</h4>
+
+        <ul>
+          <li>About</li>
+          <li>Programs</li>
+          <li>Impact</li>
+          <li>Donate</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+
+        <ul>
+          <li>Texas, United States</li>
+          <li>info@handsofhopewcen.org</li>
+          <li>Mon – Fri | 9AM – 5PM</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Hands of Hope Women & Children Empowerment Network Inc.</span>
+      <span>501(c)(3) Nonprofit Organization</span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const startupVideo = document.getElementById('startupVideo');
+const videoOverlay = document.getElementById('videoOverlay');
+const skipVideo = document.getElementById('skipVideo');
+
+function closeIntroVideo() {
+  videoOverlay.classList.add('hidden');
+  startupVideo.pause();
+}
+
+skipVideo.addEventListener('click', closeIntroVideo);
+
+startupVideo.addEventListener('ended', () => {
+  closeIntroVideo();
+});
+
+// Prevent intro replay every refresh in same session
+if (sessionStorage.getItem('introPlayed')) {
+  closeIntroVideo();
+} else {
+  startupVideo.addEventListener('ended', () => {
+    sessionStorage.setItem('introPlayed', 'true');
+  });
+
+  skipVideo.addEventListener('click', () => {
+    sessionStorage.setItem('introPlayed', 'true');
+  });
+}
+</script>
+
+</body>
+</html>
